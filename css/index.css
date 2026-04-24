@@ -4,3 +4,34 @@
   place-items: center;
   height: 100vh;
 }
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: rgb(34, 33, 33);
+  color: #dad1d1;
+
+  & button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: rgb(218, 209, 209);
+    transition: all .3s ease-out;
+
+    & figure {
+      width: 70px;
+      height: auto;
+    }
+
+    & span {
+      font-size: 1rem;
+    }
+
+    &:hover {
+      scale: 1.025;
+    }
+  }
+}
