@@ -25,7 +25,7 @@ app.component("com-footer", {
   template:
   `
   <footer>
-    <h2>Es el footer funcionando</h2>
+    <span>Creado por Tito Valentín</span>
   </footer>
   `
 })
