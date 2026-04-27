@@ -35,12 +35,10 @@ app.component("com-product", {
   props: ["nombre", "imagen", "precio"],
   template: 
   `
-  <div class="card">
     <img :src="imagen" :alt="nombre">
     <h2>{{ nombre }}</h2>
     <p>{{ precio.toFixed(2) }}</p>
     <button>Agregar al carrito</button>
-  </div>
   `
 });
 

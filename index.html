@@ -11,12 +11,14 @@
   <body>
     <div id="app">
       <com-header></com-header>
-      <main v-for="product in products">
-        <com-product
-          :nombre="product.name"
-          :imagen="product.image"
-          :precio="product.price"
-        ></com-product>
+      <main>
+        <div v-for="product in products" :key="product.id" class="card">
+          <com-product
+            :nombre="product.name"
+            :imagen="product.image"
+            :precio="product.price"
+          ></com-product>
+        </div>
       </main>
       <com-footer></com-footer>
     </div>
