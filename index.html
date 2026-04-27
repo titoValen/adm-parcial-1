@@ -5,13 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Parcial nº1 - Aplicaciones para Dispositivos Móviles</title>
 
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/index.css" />
   </head>
   <body>
     <div id="app">
       <com-header></com-header>
-      <main></main>
+      <main v-for="product in products">
+        <com-product
+          :nombre="product.name"
+          :imagen="product.image"
+          :precio="product.price"
+        ></com-product>
+      </main>
       <com-footer></com-footer>
     </div>
 
