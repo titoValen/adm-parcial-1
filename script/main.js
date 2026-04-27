@@ -1,9 +1,19 @@
 const app = Vue.createApp({
   data() {
     return {
-      probando: "Esto es de prueba"
-    }
-  }
+      probando: "Esto es de prueba",
+      products: [],
+    };
+  },
+  mounted() {
+    fetch("../data/products.json")
+      .then((response) => response.json())
+      .then((data) => {
+        this.products = data.products;
+      })
+      .catch((error) => console.error("Error loading products:", error));
+  },
+  methods: {},
 });
 
 app.component("com-header", {
@@ -22,12 +32,12 @@ app.component("com-header", {
 });
 
 app.component("com-footer", {
-  template:
+  template: 
   `
   <footer>
     <span>Creado por Tito Valentín</span>
   </footer>
   `
-})
+});
 
 app.mount("#app");
