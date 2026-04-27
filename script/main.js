@@ -1,8 +1,8 @@
 const app = Vue.createApp({
   data() {
     return {
-      probando: "Esto es de prueba",
       products: [],
+      carrito: []
     };
   },
   mounted() {
@@ -13,7 +13,12 @@ const app = Vue.createApp({
       })
       .catch((error) => console.error("Error loading products:", error));
   },
-  methods: {},
+  methods: {
+    agregarAlCarrito(producto) {
+      this.carrito.push(producto);
+      // console.log("Producto agregado al carrito:", producto);
+    }
+  },
 });
 
 app.component("com-header", {
@@ -38,7 +43,7 @@ app.component("com-product", {
     <img :src="imagen" :alt="nombre">
     <h2>{{ nombre }}</h2>
     <p>{{ precio.toFixed(2) }}</p>
-    <button>Agregar al carrito</button>
+    <button @click="$emit('agregar-al-carrito', { nombre, imagen, precio })">Agregar al carrito</button>
   `
 });
 
