@@ -10,7 +10,7 @@
   </head>
   <body>
     <div id="app">
-      <com-header></com-header>
+      <com-header :carrito="carrito" @ver-carrito="verCarrito"></com-header>
       <main>
         <div v-for="product in products" :key="product.id" class="card">
           <com-product
@@ -25,6 +25,6 @@
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="script/main.js" type="module"></script>
+    <script src="script/main.js"></script>
   </body>
 </html>

@@ -2,7 +2,7 @@ const app = Vue.createApp({
   data() {
     return {
       products: [],
-      carrito: []
+      carrito: [],
     };
   },
   mounted() {
@@ -17,43 +17,48 @@ const app = Vue.createApp({
     agregarAlCarrito(producto) {
       this.carrito.push(producto);
       // console.log("Producto agregado al carrito:", producto);
-    }
+    },
+    verCarrito() {
+      if (this.carrito.length === 0) {
+        return alert("El carrito esta vacio")
+      }
+    },
   },
 });
 
 app.component("com-header", {
-  template: 
-  `
-  <header>
-    <h1>Tienda de zapatillas</h1>
-    <button>
-      <figure>
-        <img src='../img/icon/cart.svg'>
-      </figure>
-      <span>Tu carrito</span>
-    </button>
-  </header>
-  `
+  props: ["carrito"],
+  emits: ["ver-carrito"],
+  template: `
+    <header>
+      <h1>Tienda de zapatillas</h1>
+      <button @click="$emit('ver-carrito')">
+        <figure>
+          <img src='../img/icon/cart.svg'>
+        </figure>
+        <span>Tu carrito</span>
+      </button>
+    </header>
+  `,
 });
 
 app.component("com-product", {
   props: ["nombre", "imagen", "precio"],
-  template: 
-  `
+  emits: ["agregar-al-carrito"],
+  template: `
     <img :src="imagen" :alt="nombre">
     <h2>{{ nombre }}</h2>
     <p>{{ precio.toFixed(2) }}</p>
     <button @click="$emit('agregar-al-carrito', { nombre, imagen, precio })">Agregar al carrito</button>
-  `
+  `,
 });
 
 app.component("com-footer", {
-  template: 
-  `
+  template: `
   <footer>
     <span>Creado por Tito Valentín</span>
   </footer>
-  `
+  `,
 });
 
 app.mount("#app");
