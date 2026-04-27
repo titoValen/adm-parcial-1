@@ -3,8 +3,12 @@ const app = Vue.createApp({
     return {
       products: [],
       carrito: [],
-      valorTotal: 0,
     };
+  },
+  computed: {
+    calcularValor() {
+      return this.carrito.reduce((acc, item) => acc + item.precio, 0);
+    },
   },
   mounted() {
     fetch("../data/products.json")
@@ -23,19 +27,12 @@ const app = Vue.createApp({
       if (this.carrito.length === 0) {
         return alert("El carrito esta vacio");
       }
-
-      this.calcularValor();
-    },
-    calcularValor() {
-      for (let i = 0; i < this.carrito.length; i++) {
-        this.valorTotal += this.carrito[i].precio;
-      }
     },
     vaciarCarrito() {
       if (this.carrito.length === 0) {
         return alert("El carrito ya esta vacio");
       }
-      
+
       this.carrito = [];
     },
   },
