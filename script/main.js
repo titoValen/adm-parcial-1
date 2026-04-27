@@ -31,6 +31,13 @@ const app = Vue.createApp({
         this.valorTotal += this.carrito[i].precio;
       }
     },
+    vaciarCarrito() {
+      if (this.carrito.length === 0) {
+        return alert("El carrito ya esta vacio");
+      }
+      
+      this.carrito = [];
+    },
   },
 });
 
