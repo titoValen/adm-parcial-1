@@ -37,6 +37,7 @@ const app = Vue.createApp({
       }
 
       this.carrito = [];
+      this.mostrarCarrito = false;
     },
   },
 });
