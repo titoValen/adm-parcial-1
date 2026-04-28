@@ -3,6 +3,7 @@ const app = Vue.createApp({
     return {
       products: [],
       carrito: [],
+      mostrarCarrito: false,
     };
   },
   computed: {
@@ -27,6 +28,8 @@ const app = Vue.createApp({
       if (this.carrito.length === 0) {
         return alert("El carrito esta vacio");
       }
+
+      this.mostrarCarrito = !this.mostrarCarrito;
     },
     vaciarCarrito() {
       if (this.carrito.length === 0) {
