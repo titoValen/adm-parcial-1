@@ -4,6 +4,7 @@ const app = Vue.createApp({
       products: [],
       carrito: [],
       mostrarCarrito: false,
+      mostrarFiltro: false,
       filtro: "",
     };
   },
@@ -56,21 +57,32 @@ const app = Vue.createApp({
         this.mostrarCarrito = false;
       }
     },
+    verFiltro() {
+      this.mostrarFiltro = !this.mostrarFiltro;
+    }
   },
 });
 
 app.component("com-header", {
-  props: ["carrito"],
-  emits: ["ver-carrito"],
+  props: ["carrito", "filtro"],
+  emits: ["ver-carrito", "ver-filtro"],
   template: `
     <header>
       <h1>Tienda de zapatillas</h1>
-      <button @click="$emit('ver-carrito')">
-        <figure>
-          <img src='../img/icon/cart.svg'>
-        </figure>
-        <span>Tu carrito</span>
-      </button>
+      <div class="header-buttons">
+        <button @click="$emit('ver-carrito')">
+          <figure>
+            <img src='../img/icon/cart.svg'>
+          </figure>
+          <span>Tu carrito</span>
+        </button>
+        <button @click="$emit('ver-filtro')">
+          <figure>
+            <img src='../img/icon/filter.svg'>
+          </figure>
+          <span>Filtrar</span>
+        </button>
+      </div>
     </header>
   `,
 });
