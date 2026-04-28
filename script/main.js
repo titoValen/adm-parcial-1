@@ -4,11 +4,20 @@ const app = Vue.createApp({
       products: [],
       carrito: [],
       mostrarCarrito: false,
+      filtro: "",
     };
   },
   computed: {
     calcularValor() {
       return this.carrito.reduce((acc, item) => acc + item.precio, 0);
+    },
+    productosFiltrados() {
+      return this.products.filter(
+        (p) =>
+          p.name.toLowerCase().includes(this.filtro.toLowerCase()) ||
+          p.brand.toLowerCase().includes(this.filtro.toLowerCase()) ||
+          p.category.toLowerCase().includes(this.filtro.toLowerCase()),
+      );
     },
   },
   mounted() {
