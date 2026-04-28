@@ -14,14 +14,29 @@
       <!-- El modal -->
       <div v-if="mostrarCarrito" class="modal">
         <h2>Tu carrito</h2>
-        <div v-for="item in carrito" :key="item.nombre">
-          <span v-text="item.nombre"></span>
-          <span v-text="item.precio"></span>
-          <button @click="quitarDelCarrito(item)">Quitar</button>
+        <div class="container-list-product">
+          <div
+            v-for="item in carrito"
+            :key="item.nombre"
+            class="colunm-product"
+          >
+            <div>
+              <span v-text="item.nombre"></span>
+              <span v-text="item.precio"></span>
+            </div>
+            <button @click="quitarDelCarrito(item)">
+              <figure>
+                <img src="img/icon/delete.svg" alt="Icono de eliminar" />
+              </figure>
+            </button>
+          </div>
         </div>
+        <hr>
         <p>Total: {{ calcularValor }}</p>
-        <button @click="vaciarCarrito">Vaciar carrito</button>
-        <button @click="mostrarCarrito = false">Cerrar</button>
+        <div class="modal-buttons">
+          <button @click="vaciarCarrito">Vaciar carrito</button>
+          <button @click="mostrarCarrito = false">Cerrar</button>
+        </div>
       </div>
       <main>
         <div v-for="product in products" :key="product.id" class="card">
