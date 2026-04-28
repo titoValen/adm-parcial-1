@@ -14,24 +14,29 @@ header {
   background: rgb(34, 33, 33);
   color: #dad1d1;
 
-  & button {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    color: rgb(218, 209, 209);
-    transition: all 0.3s ease-out;
+  .header-buttons {
+    display: flex;
+    gap: 1rem;
 
-    & figure {
-      width: 70px;
-      height: auto;
-    }
+    & button {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      color: rgb(218, 209, 209);
+      transition: all 0.3s ease-out;
 
-    & span {
-      font-size: 1rem;
-    }
+      & figure {
+        width: 70px;
+        height: auto;
+      }
 
-    &:hover {
-      scale: 1.025;
+      & span {
+        font-size: 1rem;
+      }
+
+      &:hover {
+        scale: 1.025;
+      }
     }
   }
 }
@@ -140,7 +145,7 @@ main {
   & .modal-buttons {
     display: flex;
     gap: 1rem;
-    margin: .5rem 0;
+    margin: 0.5rem 0;
 
     & button {
       flex: 1;
