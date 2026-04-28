@@ -98,6 +98,39 @@ app.component("com-product", {
   `,
 });
 
+app.component("com-modal", {
+  props: ["carrito", "calcularValor"],
+  emits: ["quitar-del-carrito", "vaciar-carrito", "cerrar-modal"],
+  template: `
+  <div class="modal">
+    <h2>Tu carrito</h2>
+    <div class="container-list-product">
+      <div
+        v-for="item in carrito"
+        :key="item.nombre"
+        class="colunm-product"
+      >
+        <div>
+          <span v-text="item.nombre"></span>
+          <span v-text="item.precio"></span>
+        </div>
+        <button @click="$emit('quitar-del-carrito', item)">
+          <figure>
+            <img src="img/icon/delete.svg" alt="Icono de eliminar" />
+          </figure>
+        </button>
+      </div>
+    </div>
+    <hr />
+    <p>Total: {{ calcularValor }}</p>
+    <div class="modal-buttons">
+      <button @click="$emit('vaciar-carrito')">Vaciar carrito</button>
+      <button @click="$emit('cerrar-modal')">Cerrar</button>
+    </div>
+  </div>
+  `
+})
+
 app.component("com-footer", {
   template: `
   <footer>
