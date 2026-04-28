@@ -19,7 +19,7 @@ header {
     border: none;
     cursor: pointer;
     color: rgb(218, 209, 209);
-    transition: all .3s ease-out;
+    transition: all 0.3s ease-out;
 
     & figure {
       width: 70px;
@@ -46,27 +46,108 @@ main {
   & .card {
     display: flex;
     flex-direction: column;
-    gap: .5rem;
+    gap: 0.5rem;
     max-width: 350px;
     text-align: center;
     background-color: #292929;
     color: #dad1d1;
     padding: 1rem;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 
     & button {
-      padding: .5rem 1rem;
+      padding: 0.5rem 1rem;
       background-color: #dad1d1;
       border: none;
       border-radius: 0.25rem;
       cursor: pointer;
       font-size: 1rem;
-      transition: all .3s ease-out;
+      transition: all 0.3s ease-out;
 
       &:hover {
         background-color: #c0bcbc;
       }
+    }
+  }
+}
+
+.modal {
+  position: absolute;
+  top: 15%;
+  right: 2%;
+  max-width: 300px;
+  width: 50%;
+  background-color: #292929;
+  color: #dad1d1;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+  & h2 {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  & .container-list-product {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    & .colunm-product {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      & div {
+        display: flex;
+        gap: 0.5rem;
+
+        & span {
+          font-size: 1.125rem;
+        }
+      }
+
+      & button {
+        background: #b72727;
+        border: none;
+        color: #dad1d1;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgb(183, 39, 39, 0.8);
+        }
+
+        & figure {
+          width: 20px;
+          height: auto;
+        }
+      }
+    }
+  }
+
+  & hr {
+    margin: 1rem 0;
+    border: none;
+    border-top: 2px solid #dad1d1;
+  }
+
+  & p {
+    font-size: 1.125rem;
+  }
+
+  & .modal-buttons {
+    display: flex;
+    gap: 1rem;
+    margin: .5rem 0;
+
+    & button {
+      flex: 1;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 0.25rem;
+      cursor: pointer;
     }
   }
 }
