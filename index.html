@@ -10,7 +10,11 @@
   </head>
   <body>
     <div id="app">
-      <com-header :carrito="carrito" @ver-carrito="verCarrito" @ver-filtro="verFiltro"></com-header>
+      <com-header
+        :carrito="carrito"
+        @ver-carrito="verCarrito"
+        @ver-filtro="verFiltro"
+      ></com-header>
       <!-- El modal -->
       <div v-if="mostrarCarrito" class="modal">
         <h2>Tu carrito</h2>
@@ -31,16 +35,23 @@
             </button>
           </div>
         </div>
-        <hr>
+        <hr />
         <p>Total: {{ calcularValor }}</p>
         <div class="modal-buttons">
           <button @click="vaciarCarrito">Vaciar carrito</button>
           <button @click="mostrarCarrito = false">Cerrar</button>
         </div>
       </div>
-      <input v-if="mostrarFiltro" v-model="filtro" placeholder="Buscar producto...">
+      <div v-if="mostrarFiltro" class="filtro">
+        <label for="buscador">Buscar producto:</label>
+        <input id="buscador" class="buscador" v-model="filtro" />
+      </div>
       <main>
-        <div v-for="product in productosFiltrados" :key="product.id" class="card">
+        <div
+          v-for="product in productosFiltrados"
+          :key="product.id"
+          class="card"
+        >
           <com-product
             :nombre="product.name"
             :imagen="product.image"
