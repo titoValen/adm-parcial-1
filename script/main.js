@@ -39,13 +39,14 @@ const app = Vue.createApp({
       this.carrito = [];
       this.mostrarCarrito = false;
     },
-    quitarDelCarrito(index) {
+    quitarDelCarrito(item) {
+      const index = this.carrito.indexOf(item);
       this.carrito.splice(index, 1);
 
       if (this.carrito.length === 0) {
         this.mostrarCarrito = false;
       }
-    }
+    },
   },
 });
 
