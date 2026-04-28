@@ -15,33 +15,14 @@
         @ver-carrito="verCarrito"
         @ver-filtro="verFiltro"
       ></com-header>
-      <!-- El modal -->
-      <div v-if="mostrarCarrito" class="modal">
-        <h2>Tu carrito</h2>
-        <div class="container-list-product">
-          <div
-            v-for="item in carrito"
-            :key="item.nombre"
-            class="colunm-product"
-          >
-            <div>
-              <span v-text="item.nombre"></span>
-              <span v-text="item.precio"></span>
-            </div>
-            <button @click="quitarDelCarrito(item)">
-              <figure>
-                <img src="img/icon/delete.svg" alt="Icono de eliminar" />
-              </figure>
-            </button>
-          </div>
-        </div>
-        <hr />
-        <p>Total: {{ calcularValor }}</p>
-        <div class="modal-buttons">
-          <button @click="vaciarCarrito">Vaciar carrito</button>
-          <button @click="mostrarCarrito = false">Cerrar</button>
-        </div>
-      </div>
+      <com-modal
+        v-if="mostrarCarrito"
+        :carrito="carrito"
+        :calcular-valor="calcularValor"
+        @quitar-del-carrito="quitarDelCarrito"
+        @vaciar-carrito="vaciarCarrito"
+        @cerrar-modal="mostrarCarrito = false"
+      ></com-modal>
       <div v-if="mostrarFiltro" class="filtro">
         <label for="buscador">Buscar producto:</label>
         <input id="buscador" class="buscador" v-model="filtro" />
