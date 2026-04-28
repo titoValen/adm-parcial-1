@@ -21,7 +21,7 @@
         </div>
         <p>Total: {{ calcularValor }}</p>
         <button @click="vaciarCarrito">Vaciar carrito</button>
-        <button @click="mostrarCarrito">Cerrar</button>
+        <button @click="mostrarCarrito = false">Cerrar</button>
       </div>
       <main>
         <div v-for="product in products" :key="product.id" class="card">
